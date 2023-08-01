@@ -1,0 +1,37 @@
+{
+  "name": "dts-bundler",
+  "private": false,
+  "version": "0.0.1",
+  "type": "commonjs",
+  "description": "DTS Bundler Plugin for Vite",
+  "author": {
+    "name": "Isak K. Hauge",
+    "email": "isakhauge@icloud.com",
+    "url": "https://no.linkedin.com/in/isakhauge"
+  },
+  "keywords": [
+    "dts-bundler",
+    "dts",
+    "d.ts",
+    "bundler",
+    "plugin",
+    "ts",
+    "typescript",
+    "vite"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/isakhauge/dts-bundler.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "tsc": "tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/node": "^20.3.0",
+    "@types/rollup": "^0.54.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.9"
+  }
+}
