@@ -1,11 +1,11 @@
 import { resolve } from 'path'
-import { createDts, findDts, removeImports } from './utils/dts-utils'
+import { createDts, findDts, removeImports } from './utils/dts-utils.js'
 import {
 	readDir,
 	read,
 	write,
 	deleteFile,
-} from './utils/node-utils'
+} from './utils/node-utils.js'
 
 /**
  * # Merge DTS Files

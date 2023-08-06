@@ -1,8 +1,8 @@
 {
   "name": "dts-fusion",
   "private": false,
-  "version": "0.0.1",
-  "type": "commonjs",
+  "version": "0.0.2",
+  "type": "module",
   "description": "DTS Bundler Plugin for Vite",
   "author": {
     "name": "Isak K. Hauge",
@@ -21,7 +21,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/isakhauge/dts-bundler.git"
+    "url": "https://github.com/isakhauge/dts-fusion.git"
   },
   "main": "src/DtsPlugin.js",
   "module": "src/DtsPlugin.js",

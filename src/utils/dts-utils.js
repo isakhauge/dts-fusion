@@ -1,5 +1,5 @@
 import { resolve } from 'path'
-import { run } from './node-utils'
+import { run } from './node-utils.js'
 import { stat, readdir } from 'fs/promises'
 
 /**
