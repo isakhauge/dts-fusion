@@ -99,16 +99,6 @@ export const deleteFile = async (path) => {
 }
 
 /**
- * # Force Dirent to Path
- * Forces instances of Dirent objects to path strings.
- * @param file
- * @returns
- */
-// const forceDirentToPath = (file: PathString | Dirent) => {
-// 	return file instanceof Dirent ? file.path : file
-// }
-
-/**
  * # Read Directory
  * @param {string} path Path to directory
  * @param {ReadOptions} options Options
