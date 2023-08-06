@@ -83,8 +83,10 @@ async function createDtsFiles(ctx) {
  * @returns {DtsPluginContext}
  */
 function createContext(options) {
+	const defaultBundleFileName = 'types'
+	const bundleFileName = options.outFileName || defaultBundleFileName
 	return {
-		dtsBundlePath: resolve(options.outDir, 'ns.d.ts'),
+		dtsBundlePath: resolve(options.outDir, `${bundleFileName}.d.ts`),
 		options,
 	}
 }
@@ -95,6 +97,7 @@ function createContext(options) {
  * @typedef {{
  * 	inDir: string,
  * 	outDir: string,
+ *  outFileName?: string,
  * }} DtsPluginOptions
  * @typedef {{
  * 	dtsBundlePath: string,
