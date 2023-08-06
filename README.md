@@ -2,18 +2,18 @@
 
 > DTS Bundler Plugin for Vite
 
-Bundles all type declaration files into a single declaration file.
+Generate TS type declaration files of all TS files and bundles them all into a single declaration file.
 
 ## Installation
 
 ```bash
-npm install dts-fusion
+yarn add -D dts-fusion
 ```
 
 ## Usage
 
 ```js
-const { DtsPlugin } = require('@isak/dts-bundler')
+const { DtsPlugin } = require('dts-fusion')
 export default defineConfig({
 	plugins: [
 		DtsPlugin({
