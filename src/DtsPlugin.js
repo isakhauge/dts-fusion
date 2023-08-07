@@ -13,10 +13,38 @@ import {
  * @returns {Promise<string>}
  */
 async function mergeDtsFiles(ctx) {
-	// Find all created .d.ts files.
+	// Find all .d.ts files.
 	const dtsFilesFromInDir = await findDts(ctx.options.inDir)
 	const dtsFilesFromOutDir = await findDts(ctx.options.outDir)
-	const dtsFiles = [...dtsFilesFromInDir, ...dtsFilesFromOutDir]
+	let dtsFiles = [...dtsFilesFromInDir, ...dtsFilesFromOutDir]
+	
+	// Evaluate include and exclude options.
+	const filterByInclude = ctx.options?.include?.length > 0
+	const filterByExclude = ctx.options?.exclude?.length > 0
+
+	// Include and exclude files based on exclude options.
+	if (filterByExclude) {
+		dtsFiles = dtsFiles.filter(path => {
+			return ctx.options.exclude.every(rule => {
+				if (rule instanceof RegExp) {
+					return rule.test(path)
+				}
+				return path.includes(rule)
+			}) === false
+		})
+	}
+
+	// Include and exclude files based on include options.
+	if (filterByInclude) {
+		dtsFiles = dtsFiles.filter(path => {
+			return ctx.options.include.some(rule => {
+				if (rule instanceof RegExp) {
+					return rule.test(path)
+				}
+				return path.includes(rule)
+			})
+		})
+	}
 
 	// Read and the contents of all found .d.ts files.
 	const dtsFileContents = await Promise.all(dtsFiles.map(read))
@@ -98,6 +126,8 @@ function createContext(options) {
  * @typedef {string} PathString
  * @typedef {{
  * 	inDir: string,
+ *  include?: string[],
+ *  exclude?: string[],
  * 	outDir: string,
  *  outFileName?: string,
  * }} DtsPluginOptions

@@ -18,6 +18,8 @@ export default defineConfig({
 	plugins: [
 		DtsPlugin({
 			inDir: 'src/ts',
+			include: ['main.ts', /util\/.+\.ts/], // Optional
+			exclude: ['test.ts', /(\.spec\.ts)$/], // Optional
 			outDir: 'dist',
 			outFileName: 'my-types', // Optional, defaults to `types`
 		}),
