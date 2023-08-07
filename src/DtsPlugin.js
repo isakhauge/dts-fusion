@@ -14,7 +14,9 @@ import {
  */
 async function mergeDtsFiles(ctx) {
 	// Find all created .d.ts files.
-	const dtsFiles = await findDts(ctx.options.outDir)
+	const dtsFilesFromInDir = await findDts(ctx.options.inDir)
+	const dtsFilesFromOutDir = await findDts(ctx.options.outDir)
+	const dtsFiles = [...dtsFilesFromInDir, ...dtsFilesFromOutDir]
 
 	// Read and the contents of all found .d.ts files.
 	const dtsFileContents = await Promise.all(dtsFiles.map(read))
