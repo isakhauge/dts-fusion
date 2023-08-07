@@ -2,7 +2,7 @@
 
 > DTS Bundler Plugin for Vite
 
-Generate TS type declaration files of all TS files and bundles them all into a single declaration file.
+Generates `d.ts` files of all `ts` files and bundles them all into a single `d.ts`, including existing `d.ts` files.
 
 ## Installation
 
